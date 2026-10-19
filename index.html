@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ClickWise | Your Digital Guide</title>
+
 <style>
 :root {
   --blue: #4f46e5;
@@ -13,7 +14,9 @@
   --bg: #f5f7ff;
   --white: #ffffff;
 }
+
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -21,6 +24,7 @@ body {
   color: var(--ink);
   line-height: 1.6;
 }
+
 header {
   padding: 18px 7%;
   display: flex;
@@ -29,8 +33,10 @@ header {
   background: white;
   border-bottom: 1px solid #e8e9f5;
 }
+
 .logo { font-size: 23px; font-weight: 800; color: var(--blue); }
 .logo span { color: #f59e0b; }
+
 .tag {
   background: #eef2ff;
   color: var(--blue);
@@ -39,24 +45,31 @@ header {
   font-size: 12px;
   font-weight: bold;
 }
+
 main { max-width: 1080px; margin: auto; padding: 36px 20px 60px; }
+
 .hero { text-align: center; padding: 28px 0 36px; }
-.hero .eyebrow {
+
+.eyebrow {
   color: var(--blue);
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
 }
+
 h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.12; margin: 14px 0; }
 h1 span { color: var(--blue); }
+
 .hero p { max-width: 620px; margin: auto; color: var(--muted); font-size: 17px; }
+
 .layout {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 22px;
   align-items: start;
 }
+
 .panel {
   background: var(--white);
   border: 1px solid #e7e8f3;
@@ -64,67 +77,126 @@ h1 span { color: var(--blue); }
   padding: 24px;
   box-shadow: 0 10px 30px #343b7910;
 }
+
 h2 { margin: 0 0 8px; font-size: 22px; }
 .sub { margin: 0 0 20px; color: var(--muted); font-size: 14px; }
 .steps { display: grid; gap: 14px; }
 .step { display: flex; gap: 13px; align-items: flex-start; }
+
 .number {
-  flex: 0 0 36px; height: 36px; border-radius: 12px;
-  background: #eef2ff; color: var(--blue);
-  display: grid; place-items: center; font-weight: bold;
+  flex: 0 0 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: #eef2ff;
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  font-weight: bold;
 }
+
 .step p { margin: 3px 0 0; color: var(--muted); font-size: 14px; }
-.step strong { color: var(--ink); }
 .topic-title { font-size: 13px; color: var(--muted); margin: 24px 0 10px; }
 .topics { display: flex; flex-wrap: wrap; gap: 8px; }
-.topic {
-  border: 1px solid #dfe2f4; border-radius: 20px;
-  background: white; padding: 9px 12px; cursor: pointer;
-  font-size: 12px; color: #3730a3;
+
+.topic, .quick button {
+  border: 1px solid #dfe2f4;
+  border-radius: 20px;
+  background: white;
+  padding: 9px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #3730a3;
 }
-.topic:hover { background: #eef2ff; }
+
+.topic:hover, .quick button:hover { background: #eef2ff; }
+
 .chat-panel { padding: 0; overflow: hidden; }
+
 .chat-head {
-  padding: 19px 21px; background: #4f46e5; color: white;
-  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  padding: 19px 21px;
+  background: var(--blue);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
+
 .chat-head h2 { font-size: 18px; margin: 0; }
 .chat-head p { font-size: 12px; margin: 3px 0 0; color: #e0e7ff; }
-.status { font-size: 11px; background: #ffffff25; padding: 6px 9px; border-radius: 20px; white-space: nowrap; }
+
+.reset {
+  background: transparent;
+  color: white;
+  border: 1px solid #ffffff70;
+  border-radius: 9px;
+  padding: 7px 9px;
+  cursor: pointer;
+}
+
 .messages {
-  height: 340px; overflow-y: auto; padding: 20px;
-  display: flex; flex-direction: column; gap: 14px;
+  height: 340px;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   background: #fcfcff;
 }
+
 .message {
-  max-width: 88%; padding: 12px 14px; border-radius: 15px;
-  font-size: 14px; white-space: pre-wrap; overflow-wrap: anywhere;
+  max-width: 90%;
+  padding: 12px 14px;
+  border-radius: 15px;
+  font-size: 14px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
+
 .bot { background: #eef0ff; align-self: flex-start; border-bottom-left-radius: 4px; }
 .user { background: var(--blue); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
-.sender { display: block; font-size: 10px; font-weight: bold; margin-bottom: 4px; opacity: .75; }
+
+.sender {
+  display: block;
+  font-size: 10px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  opacity: .75;
+}
+
 .quick { display: flex; gap: 7px; flex-wrap: wrap; padding: 0 16px 13px; background: #fcfcff; }
-.quick button {
-  background: white; border: 1px solid #e0e3f3; border-radius: 20px;
-  padding: 7px 10px; cursor: pointer; color: #4338ca; font-size: 11px;
-}
+
+.quick button { padding: 7px 10px; }
+
 .composer { display: flex; gap: 8px; padding: 14px; border-top: 1px solid #ececf5; }
+
 input {
-  min-width: 0; flex: 1; padding: 13px; border-radius: 12px;
-  border: 1px solid #dcdfee; font-size: 14px; outline: none;
+  min-width: 0;
+  flex: 1;
+  padding: 13px;
+  border-radius: 12px;
+  border: 1px solid #dcdfee;
+  font-size: 14px;
+  outline: none;
 }
+
 input:focus { border-color: var(--blue); }
+
 .send {
-  border: 0; border-radius: 12px; padding: 0 18px;
-  color: white; background: var(--blue); font-weight: bold; cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  padding: 0 18px;
+  color: white;
+  background: var(--blue);
+  font-weight: bold;
+  cursor: pointer;
 }
+
 .send:hover { background: #3730a3; }
-.reset {
-  background: transparent; color: white; border: 1px solid #ffffff70;
-  border-radius: 9px; padding: 7px 9px; cursor: pointer; font-size: 11px;
-}
-.privacy { text-align: center; color: var(--muted); font-size: 11px; padding: 0 12px 15px; background: #fcfcff; }
+
+.privacy { text-align: center; color: var(--muted); font-size: 11px; padding: 0 12px 15px; }
 .bottom { text-align: center; color: var(--muted); font-size: 12px; padding-top: 28px; }
+
 @media (max-width: 720px) {
   header { padding: 16px 5%; }
   main { padding: 24px 14px 40px; }
@@ -136,7 +208,9 @@ input:focus { border-color: var(--blue); }
 }
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="logo">Click<span>Wise</span> ✦</div>
   <div class="tag">YOUR DIGITAL GUIDE</div>
@@ -161,7 +235,7 @@ input:focus { border-color: var(--blue); }
         </div>
         <div class="step">
           <div class="number">2</div>
-          <div><strong>Get simple instructions</strong><p>Receive easy explanations and practical steps without confusing jargon.</p></div>
+          <div><strong>Get simple instructions</strong><p>Receive easy explanations and practical steps.</p></div>
         </div>
         <div class="step">
           <div class="number">3</div>
@@ -179,7 +253,7 @@ input:focus { border-color: var(--blue); }
 
       <div style="margin-top:24px;padding:15px;background:#f7f7ff;border-radius:13px;">
         <strong>💡 What makes ClickWise different?</strong>
-        <p style="font-size:13px;color:#6b7280;margin:7px 0 0;">Instead of giving complicated technical answers, ClickWise focuses on helping beginners understand what to do next in everyday digital situations.</p>
+        <p style="font-size:13px;color:#6b7280;margin:7px 0 0;">ClickWise helps beginners understand everyday digital tasks using simple language instead of confusing technical terms.</p>
       </div>
     </div>
 
@@ -192,13 +266,7 @@ input:focus { border-color: var(--blue); }
         <button class="reset" id="resetBtn" type="button">↻ New chat</button>
       </div>
 
-      <div class="messages" id="messages" aria-live="polite">
-        <div class="message bot"><span class="sender">WISEBOT</span>Hello! 👋 I'm WiseBot, your ClickWise guide.
-
-I can explain digital tasks in simple language. Ask me how to do something online, how to use this website, or how to stay safer on the internet.
-
-What would you like help with today?</div>
-      </div>
+      <div class="messages" id="messages" aria-live="polite"></div>
 
       <div class="quick">
         <button data-question="What is ClickWise?">What is ClickWise?</button>
@@ -207,10 +275,11 @@ What would you like help with today?</div>
       </div>
 
       <form class="composer" id="chatForm">
-        <input id="userInput" type="text" placeholder="Type your question here..." maxlength="500" autocomplete="off" aria-label="Your question" required>
+        <input id="userInput" type="text" placeholder="Ask your question..." maxlength="500" autocomplete="off" aria-label="Your question" required>
         <button class="send" type="submit">Send ➤</button>
       </form>
-      <div class="privacy">🔒 Session-only chat: messages are not saved to chat history or browser storage.</div>
+
+      <div class="privacy">🔒 This demo does not save chat history or use browser storage. Refreshing or clearing removes messages from view.</div>
     </div>
   </section>
 
@@ -223,11 +292,7 @@ const form = document.getElementById("chatForm");
 const input = document.getElementById("userInput");
 const resetBtn = document.getElementById("resetBtn");
 
-const welcomeMessage = `Hello! 👋 I'm WiseBot, your ClickWise guide.
-
-I can explain digital tasks in simple language. Ask me how to do something online, how to use this website, or how to stay safer on the internet.
-
-What would you like help with today?`;
+const welcomeMessage = "Hello! 👋 I'm WiseBot, your ClickWise guide.\n\nI can explain digital tasks in simple language. Ask me how to use this website, complete an online task, or stay safer online.\n\nWhat would you like help with today?";
 
 function addMessage(text, type) {
   const bubble = document.createElement("div");
@@ -244,68 +309,84 @@ function addMessage(text, type) {
 }
 
 function getReply(raw) {
-  const q = raw.toLowerCase();
+  const q = raw.toLowerCase()
+    .trim()
+    .replace(/[?!.,]/g, "")
+    .replace(/\s+/g, " ");
 
-  if (/\b(hi|hello|hey|good morning|good evening)\b/.test(q)) {
-    return "Hello! 😊 Welcome to ClickWise. Tell me what digital task you want help with, and I'll explain it in simple steps.";
+  // Greetings
+  if (/^(hi|hello|hey|good morning|good evening)$/.test(q)) {
+    return "Hello! 😊 Welcome to ClickWise. Tell me what digital task you need help with, and I'll explain it in simple steps.";
   }
 
-  if (q.includes("clickwise") || q.includes("this website") || q.includes("your purpose")) {
-    return "ClickWise is a beginner-friendly digital guide. Its purpose is to help people understand everyday technology without needing technical knowledge.\n\nYou can ask WiseBot questions, explore example topics, and get simple step-by-step guidance.";
+  // Explain the website FIRST
+  if (q.includes("clickwise") || q.includes("this website") || q.includes("your purpose") || q === "what is this") {
+    return "ClickWise is a beginner-friendly digital guide. 🌟\n\nIts purpose is to help people who are not comfortable with technology understand everyday online tasks.\n\nYou can use WiseBot to learn how to create an email account, upload documents, understand online forms, and recognise suspicious links.\n\nIn simple words, ClickWise makes technology easier and safer to understand!";
   }
 
-  if (q.includes("what can you do") || q.includes("help me with") || q.includes("your features")) {
-    return "I can help you understand:\n\n1. Basic online tasks\n2. Creating email accounts\n3. Uploading documents\n4. Online forms\n5. Recognising suspicious links\n6. Staying safer online\n7. How ClickWise works\n\nAsk me about any of these!";
+  // Explain chatbot features
+  if (q.includes("what can you do") || q.includes("help me with") || q.includes("your features") || q.includes("what can you help")) {
+    return "I'm WiseBot, the helper on ClickWise! 😊\n\nI can explain:\n\n1. How to create an email account.\n2. How to upload a document.\n3. How online forms work.\n4. How to recognise suspicious links.\n5. How to stay safer online.\n6. What ClickWise is and how it works.\n\nType a question or tap one of the suggested topics!";
   }
 
+  // Explain how the chatbot works
+  if (q.includes("how do you work") || q.includes("who made you") || q.includes("what technology") || q.includes("how are you built")) {
+    return "ClickWise is a single-page website built using HTML, CSS, and JavaScript.\n\nWiseBot matches keywords in your current question to prepared answers. It does not use an external AI service or API.\n\nThis makes the demo simple to run, and it does not need a server to answer its built-in questions.";
+  }
+
+  // Chat history and privacy
+  if (q.includes("history") || q.includes("remember") || q.includes("save chat") || q.includes("privacy")) {
+    return "This demo does not save conversations in browser storage or maintain conversational memory. Each reply is based on your current message, not previous messages.\n\nClick New chat or refresh the page to clear the messages shown on screen. Avoid entering passwords, OTPs, or private information.";
+  }
+
+  // Email help
   if (q.includes("email") || q.includes("gmail")) {
-    return "Here is how to create an email account:\n\n1. Open the official email provider's website or app.\n2. Select Create account.\n3. Enter the information requested.\n4. Choose a strong, unique password.\n5. Complete any verification steps.\n6. Read the terms and finish setting up your account.\n\nNever share your password or verification codes with anyone. The exact steps may vary by provider.";
+    return "Here is how to create an email account:\n\n1. Open the official email provider's website or app.\n2. Select Create account.\n3. Enter the requested information.\n4. Choose a strong, unique password.\n5. Complete any verification steps.\n6. Follow the instructions to finish setup.\n\nNever share your password or verification codes. The exact steps may vary by provider.";
   }
 
+  // Upload help
   if (q.includes("upload") || q.includes("document") || q.includes("pdf") || q.includes("file")) {
-    return "To upload a document to a website:\n\n1. Open the website where you need to submit the file.\n2. Look for Upload, Attach file, or Choose file.\n3. Click it and locate your document on your device.\n4. Select the file and click Open.\n5. Wait for the upload to finish.\n6. Check that the correct file appears before submitting.\n\nTip: Check the required file type and size first.";
+    return "To upload a document:\n\n1. Open the website where you need to submit the file.\n2. Look for Upload, Attach file, or Choose file.\n3. Click it and locate your document.\n4. Select the file and click Open.\n5. Wait for the upload to finish.\n6. Check that the correct file appears before submitting.\n\nTip: Check the required file type and size first.";
   }
 
+  // Suspicious links and scams
   if (q.includes("suspicious") || q.includes("phishing") || q.includes("scam") || q.includes("fake link") || q.includes("suspicious link")) {
-    return "Stay safe when checking a suspicious link:\n\n1. Do not click it immediately.\n2. Check the sender and the exact website address.\n3. Watch for misspellings, urgent threats, or prizes that seem too good to be true.\n4. Never enter passwords, banking details, or OTPs through an unexpected link.\n5. Visit the organisation's official website by typing its address yourself.\n\nIf you already entered sensitive details, contact the relevant service through its official channel.";
+    return "Here is how to handle a suspicious link safely:\n\n1. Do not click it immediately.\n2. Check the sender and website address carefully.\n3. Watch for misspellings, urgent threats, and unexpected prizes.\n4. Never enter passwords, banking details, or OTPs through an unexpected link.\n5. Visit the official website by typing its address yourself.\n\nRemember: a link can still be dangerous even if it looks genuine.";
   }
 
-  if (q.includes("safe online") || q.includes("online safety") || q.includes("password") || q.includes("privacy")) {
-    return "Here are five simple online safety rules:\n\n1. Use a strong, unique password for each important account.\n2. Turn on two-factor authentication when available.\n3. Never share an OTP or verification code.\n4. Avoid unexpected links and attachments.\n5. Keep your device and apps updated.\n\nRemember: a genuine support agent should not ask you to reveal your password or OTP.";
+  // General online safety
+  if (q.includes("safe online") || q.includes("online safety") || q.includes("password") || q.includes("otp") || q.includes("stay safe")) {
+    return "Follow these simple online safety rules:\n\n1. Use strong, unique passwords.\n2. Never share an OTP or verification code.\n3. Avoid unexpected links and attachments.\n4. Use official websites and apps.\n5. Keep your device and apps updated.\n6. Never share banking details with an unverified person.\n\nIf a message pressures you to act urgently, pause and verify it first.";
   }
 
+  // Online forms
   if (q.includes("online form") || q.includes("form")) {
-    return "Here is how to complete an online form:\n\n1. Read the instructions first.\n2. Fill in the required fields marked with an asterisk (*), if present.\n3. Check spelling and details carefully.\n4. Attach documents only if requested.\n5. Review everything before clicking Submit.\n6. Look for a confirmation message or reference number.\n\nUse the official website and avoid sharing unnecessary personal information.";
-  }
-
-  if (q.includes("history") || q.includes("remember") || q.includes("save chat")) {
-    return "This demo does not save your conversation history or use browser storage. WiseBot uses your current message to choose a response. It does not remember earlier messages as a conversational memory. Refresh the page or click New chat to clear the visible conversation.";
-  }
-
-  if (q.includes("who made you") || q.includes("how do you work") || q.includes("technology")) {
-    return "ClickWise is a single-page web project built using HTML, CSS, and JavaScript. WiseBot uses simple keyword matching and predefined answers to respond to common questions. This makes the demo easy to run without an API key or backend server. It is a rule-based chatbot, not a generative AI model.";
+    return "Here is how to complete an online form:\n\n1. Read the instructions first.\n2. Fill in the required fields.\n3. Check spelling and details carefully.\n4. Attach documents only if requested.\n5. Review everything before clicking Submit.\n6. Look for a confirmation message or reference number.\n\nUse the official website and avoid sharing unnecessary personal information.";
   }
 
   if (q.includes("thank")) {
-    return "You're welcome! 😊 That's what ClickWise is here for: making technology easier to understand. Feel free to ask another question.";
+    return "You're welcome! 😊 ClickWise is here to make technology easier to understand. Feel free to ask another question!";
   }
 
-  return "I'd be happy to help! 😊 I work best with common digital tasks. Try asking:\n\n• How do I create an email account?\n• How do I upload a document?\n• How do I identify a suspicious link?\n• How do online forms work?\n• What is ClickWise?\n\nPlease describe the task in simple words.";
+  return "I'm happy to help! 😊 I work best with common digital tasks.\n\nTry asking me:\n\n• What is ClickWise?\n• How do I create an email account?\n• How do I upload a document?\n• How do I identify a suspicious link?\n• How do online forms work?\n• How do you work?\n\nPlease describe what you want to do in simple words.";
 }
 
+// Send a message
 form.addEventListener("submit", function(event) {
   event.preventDefault();
+
   const question = input.value.trim();
   if (!question) return;
 
   addMessage(question, "user");
   input.value = "";
 
-  // Replies are generated locally; no conversation is sent to a server.
+  // Respond to this message only; do not store conversation history.
   addMessage(getReply(question), "bot");
   input.focus();
 });
 
+// Suggested question buttons
 document.querySelectorAll("[data-question]").forEach(function(button) {
   button.addEventListener("click", function() {
     input.value = button.dataset.question;
@@ -313,13 +394,17 @@ document.querySelectorAll("[data-question]").forEach(function(button) {
   });
 });
 
+// Clear visible conversation
 resetBtn.addEventListener("click", function() {
   messages.replaceChildren();
   addMessage(welcomeMessage, "bot");
   input.value = "";
   input.focus();
 });
+
+// Initial welcome
+addMessage(welcomeMessage, "bot");
 </script>
+
 </body>
 </html>
-
